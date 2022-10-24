@@ -2,5 +2,5 @@
 
 public enum SpecialEnum
 {
-    Go, JailFree, Parking, Police
+    Go, JailOrFree, Parking, Police
 }

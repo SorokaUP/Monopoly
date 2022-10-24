@@ -1,12 +1,7 @@
 ﻿namespace Monopoly.Model;
 
 public interface IStreet : IPayment
-{ 
-    /// <summary>
-    /// Прописать район
-    /// </summary>
-    void SetDistrict(District district);
-    
+{
     /// <summary>
     /// Район
     /// </summary>

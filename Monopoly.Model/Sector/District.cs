@@ -20,18 +20,21 @@ public class District
     public IList<Street> Streets 
         => _streets;
 
-    public District(Color color, params Street[] streets)
+    public District(Color color)
     {
-        foreach (var street in streets)
-        {
-            _streets.Add(street);
-        }
+        this._color = color;
+    }
+
+    public District Append(string name, PayInfoStreet payInfoStreet, RentStreet rent)
+    {
+        _streets.Add(new (name, payInfoStreet, rent, this));
+        return this;
     }
 
     /// <summary>
     /// Выкуплено полностью
     /// </summary>
-    public bool Redeemed()
+    public User? Redeemed()
     {
         User? user = null;
         foreach (var street in _streets)
@@ -44,10 +47,10 @@ public class District
 
             if (user != street.Owner())
             {
-                return false;
+                return null;
             }
         }
 
-        return user != null;
+        return user;
     }
 }

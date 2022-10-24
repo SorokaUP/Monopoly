@@ -39,6 +39,7 @@ public class ManagementCompany : ISector, IPayment
     public ushort CostUp()
         => _COST_UP;
 
+    private readonly RentManagementCompany _RENT = new (4, 10);
     public ushort Rent()
     {
         throw new NotImplementedException();

@@ -5,7 +5,7 @@ public interface IPayment
     /// <summary>
     /// Текущий владелец
     /// </summary>
-    User Owner();
+    User? Owner();
     
     /// <summary>
     /// Собственность НЕ заложена

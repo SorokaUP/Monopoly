@@ -38,7 +38,7 @@ public class Railway : ISector, IPayment
     /// <summary>
     /// Рента по кол-ву выкупленных жд станций
     /// </summary>
-    private readonly ushort[] _RENT = new ushort[] { 25, 50, 100, 200 };
+    private readonly RentRailway _RENT = new RentRailway(25, 50, 100, 200);
 
     public Railway(string name)
     {

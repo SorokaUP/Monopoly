@@ -13,13 +13,7 @@ public class Street : ISector, IStreet
     /// <summary>
     /// Район
     /// </summary>
-    private District _district;
-
-    public void SetDistrict(District district)
-    {
-        this._district = district;
-    }
-
+    private readonly District _district;
     public District District()
         => _district;
     
@@ -34,49 +28,39 @@ public class Street : ISector, IStreet
     /// <summary>
     /// Цена покупки
     /// </summary>
-    private ushort _cost;
-
     public ushort CostPayment() 
-        => _cost;
+        => _payInfoStreet.CostPayment;
     
     /// <summary>
     /// Цена закладки
     /// </summary>
-    private ushort _costDown;
-
     public ushort CostDown() 
-        => _costDown;
+        => _payInfoStreet.CostDown;
 
     /// <summary>
     /// Цена выкупа
     /// </summary>
-    private ushort _costUp;
-
     public ushort CostUp() 
-        => _costUp;
+        => _payInfoStreet.CostUp;
 
     /// <summary>
     /// Цена дома
     /// </summary>
-    private ushort _costHouse;
-
     public ushort CostHouse() 
-        => _costHouse;
+        => _payInfoStreet.CostHouse;
 
     /// <summary>
     /// Цена отеля
     /// </summary>
-    private ushort _costHotel;
-
     public ushort CostHotel() 
-        => _costHotel;
+        => _payInfoStreet.CostHotel;
     
     /// <summary>
     /// Текущий владелец
     /// </summary>
-    private User _owner;
+    private User? _owner;
 
-    public User Owner() 
+    public User? Owner() 
         => _owner;
 
     /// <summary>
@@ -90,25 +74,23 @@ public class Street : ISector, IStreet
     /// <summary>
     /// Рента по кол-ву домов на улице
     /// </summary>
-    private readonly ushort[] _rentArr;
+    private readonly RentStreet _rent;
 
     public ushort Rent()
     {
         throw new NotImplementedException();
     }
 
-    public Street(string name, ushort cost, ushort costDown, ushort costRedemption, ushort costHouse, ushort costHotel, ushort[] rentArr)
+    private readonly PayInfoStreet _payInfoStreet;
+
+    public Street(string name, PayInfoStreet payInfoStreet, RentStreet rent, District district)
     {
         this._name = name;
-        this._district = null;
+        this._district = district;
         this._enabled = true;
         this._homeCount = 0;
         this._owner = null;
-        this._cost = cost;
-        this._costDown = costDown;
-        this._costUp = costRedemption;
-        this._costHouse = costHouse;
-        this._costHotel = costHotel;
-        this._rentArr = rentArr;
+        this._payInfoStreet = payInfoStreet;
+        this._rent = rent;
     }
 }

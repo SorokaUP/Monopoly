@@ -4,95 +4,86 @@ namespace Monopoly.Model;
 
 public class MapClassic
 {
-    private static Street StreetBrown1 = new Street("Житная", 60, 0, 0, 0, 0, new ushort[] {0, 0, 0, 0, 0, 0, 0}); 
-    private static Street StreetBrown2 = new Street("Нагатинская", 60, 30, 33, 50, 50, new ushort[] {4, 8, 20, 60, 180, 320, 450}); 
-    private static District DistrictBrown = new District(Color.SaddleBrown, StreetBrown1, StreetBrown2);
-    
-    private static Street StreetGray1 = new Street("Варшавское шоссе", 100, 0, 0, 0, 0, new ushort[] {0, 0, 0, 0, 0, 0, 0});
-    private static Street StreetGray2 = new Street("Огарева", 100, 0, 0, 0, 0, new ushort[] {0, 0, 0, 0, 0, 0, 0});
-    private static Street StreetGray3 = new Street("Первая Парковая", 120, 0, 0, 0, 0, new ushort[] {0, 0, 0, 0, 0, 0, 0});
-    private static District DistrictGray = new District(Color.Gray, StreetGray1, StreetGray2, StreetGray3);
-    
-    private static Street StreetPurple1 = new Street("Полянка", 140, 0, 0, 0, 0, new ushort[] {0, 0, 0, 0, 0, 0, 0});
-    private static Street StreetPurple2 = new Street("Сретенка", 140, 0, 0, 0, 0, new ushort[] {0, 0, 0, 0, 0, 0, 0});
-    private static Street StreetPurple3 = new Street("Ростовская наб.", 160, 0, 0, 0, 0, new ushort[] {0, 0, 0, 0, 0, 0, 0});
-    private static District DistrictPurple = new District(Color.Purple, StreetPurple1, StreetPurple2, StreetPurple3);
-    
-    private static Street StreetOrange1 = new Street("Рязанский пр.", 180, 0, 0, 0, 0, new ushort[] {0, 0, 0, 0, 0, 0, 0});
-    private static Street StreetOrange2 = new Street("Вавилова", 180, 0, 0, 0, 0, new ushort[] {0, 0, 0, 0, 0, 0, 0});
-    private static Street StreetOrange3 = new Street("Рублевское", 200, 0, 0, 0, 0, new ushort[] {0, 0, 0, 0, 0, 0, 0});
-    private static District DistrictOrange = new District(Color.Orange, StreetOrange1, StreetOrange2, StreetOrange3);
-    
-    private static Street StreetRed1 = new Street("Тверская", 220, 0, 0, 0, 0, new ushort[] {0, 0, 0, 0, 0, 0, 0});
-    private static Street StreetRed2 = new Street("Пушкинская", 220, 0, 0, 0, 0, new ushort[] {0, 0, 0, 0, 0, 0, 0});
-    private static Street StreetRed3 = new Street("Пл. Маяковского", 240, 0, 0, 0, 0, new ushort[] {0, 0, 0, 0, 0, 0, 0});
-    private static District DistrictRed = new District(Color.Red, StreetRed1, StreetRed2, StreetRed3);
-    
-    private static Street StreetYellow1 = new Street("Гурзинский Вал", 260, 0, 0, 0, 0, new ushort[] {0, 0, 0, 0, 0, 0, 0});
-    private static Street StreetYellow2 = new Street("Новинский бул.", 260, 0, 0, 0, 0, new ushort[] {0, 0, 0, 0, 0, 0, 0});
-    private static Street StreetYellow3 = new Street("Смоленская пл.", 280, 0, 0, 0, 0, new ushort[] {0, 0, 0, 0, 0, 0, 0});
-    private static District DistrictYellow = new District(Color.Yellow, StreetYellow1, StreetYellow2, StreetYellow3);
-    
-    private static Street StreetGreen1 = new Street("Щусева", 300, 0, 0, 0, 0, new ushort[] {0, 0, 0, 0, 0, 0, 0});
-    private static Street StreetGreen2 = new Street("Гоголевский бул.", 300, 0, 0, 0, 0, new ushort[] {0, 0, 0, 0, 0, 0, 0});
-    private static Street StreetGreen3 = new Street("Кутузовский пр.", 320, 0, 0, 0, 0, new ushort[] {0, 0, 0, 0, 0, 0, 0});
-    private static District DistrictGreen = new District(Color.Green, StreetGreen1, StreetGreen2, StreetGreen3);
-    
-    private static Street StreetBlue1 = new Street("Малая Бронная", 350, 0, 0, 0, 0, new ushort[] {0, 0, 0, 0, 0, 0, 0});
-    private static Street StreetBlue2 = new Street("Арбат", 400, 0, 0, 0, 0, new ushort[] {0, 0, 0, 0, 0, 0, 0});
-    private static District DistrictBlue = new District(Color.Blue, StreetBlue1, StreetBlue2);
-
-    private static District[] Districts = new[]
+    private static District[] Districts =
     {
-        DistrictBrown, 
-        DistrictGray, 
-        DistrictPurple, 
-        DistrictOrange, 
-        DistrictRed, 
-        DistrictYellow, 
-        DistrictGreen, 
-        DistrictBlue
+        new District(Color.SaddleBrown)
+            .Append("Житная", new (60, 0, 0, 0, 0), new (0, 0, 0, 0, 0, 0, 0))
+            .Append("Нагатинская", new (60, 30, 33, 50, 50), new (4, 8, 20, 60, 180, 320, 450)), 
+        
+        new District(Color.Gray)
+            .Append("Варшавское шоссе", new (100, 0, 0, 0, 0), new (0, 0, 0, 0, 0, 0, 0))
+            .Append("Огарева", new (100, 0, 0, 0, 0), new (0, 0, 0, 0, 0, 0, 0))
+            .Append("Первая Парковая", new (120, 0, 0, 0, 0), new (0, 0, 0, 0, 0, 0, 0)), 
+        
+        new District(Color.Purple)
+            .Append("Полянка", new (140, 0, 0, 0, 0), new (0, 0, 0, 0, 0, 0, 0))
+            .Append("Сретенка", new (140, 0, 0, 0, 0), new (0, 0, 0, 0, 0, 0, 0))
+            .Append("Ростовская наб.", new (160, 0, 0, 0, 0), new (0, 0, 0, 0, 0, 0, 0)), 
+        
+        new District(Color.Orange)
+            .Append("Рязанский пр.", new (180, 0, 0, 0, 0), new (0, 0, 0, 0, 0, 0, 0))
+            .Append("Вавилова", new (180, 0, 0, 0, 0), new (0, 0, 0, 0, 0, 0, 0))
+            .Append("Рублевское", new (200, 0, 0, 0, 0), new (0, 0, 0, 0, 0, 0, 0)), 
+        
+        new District(Color.Red)
+            .Append("Тверская", new (220, 0, 0, 0, 0), new (0, 0, 0, 0, 0, 0, 0))
+            .Append("Пушкинская", new (220, 0, 0, 0, 0), new (0, 0, 0, 0, 0, 0, 0))
+            .Append("Пл. Маяковского", new (240, 0, 0, 0, 0), new (0, 0, 0, 0, 0, 0, 0)),
+        
+        new District(Color.Yellow)
+            .Append("Гурзинский Вал", new (260, 0, 0, 0, 0), new (0, 0, 0, 0, 0, 0, 0))
+            .Append("Новинский бул.", new (260, 0, 0, 0, 0), new (0, 0, 0, 0, 0, 0, 0))
+            .Append("Смоленская пл.", new (280, 0, 0, 0, 0), new (0, 0, 0, 0, 0, 0, 0)),
+        
+        new District(Color.Green)
+            .Append("Щусева", new (300, 0, 0, 0, 0), new (0, 0, 0, 0, 0, 0, 0))
+            .Append("Гоголевский бул.", new (300, 0, 0, 0, 0), new (0, 0, 0, 0, 0, 0, 0))
+            .Append("Кутузовский пр.", new (320, 0, 0, 0, 0), new (0, 0, 0, 0, 0, 0, 0)),
+        
+        new District(Color.Blue)
+            .Append("Малая Бронная", new (350, 0, 0, 0, 0), new (0, 0, 0, 0, 0, 0, 0))
+            .Append("Арбат", new (400, 0, 0, 0, 0), new (0, 0, 0, 0, 0, 0, 0))
     };
 
-    private static Railway[] Railways = new[]
+    private static Railway[] Railways =
     {
-        new Railway("Рижская"),
-        new Railway("Курская"),
-        new Railway("Казанская"), 
-        new Railway("Ленинградская")
+        new ("Рижская"),
+        new ("Курская"),
+        new ("Казанская"), 
+        new ("Ленинградская")
     };
 
-    private static Tax[] Taxes = new[]
+    private static Tax[] Taxes = 
     {
-        new Tax(200),
-        new Tax(100)
+        new (200),
+        new (100)
     };
 
-    private static Special[] Specials = new[]
+    private static Special[] Specials = 
     {
-        new Special(SpecialEnum.Go),
-        new Special(SpecialEnum.JailFree),
-        new Special(SpecialEnum.Parking),
-        new Special(SpecialEnum.Police)
+        new (SpecialEnum.Go),
+        new (SpecialEnum.JailOrFree),
+        new (SpecialEnum.Parking),
+        new (SpecialEnum.Police)
     };
 
-    private static ManagementCompany[] ManagementCompanies = new[]
+    private static ManagementCompany[] ManagementCompanies = 
     {
-        new ManagementCompany(ManagementTypeEnum.Electro), 
-        new ManagementCompany(ManagementTypeEnum.Water)
+        new (ManagementTypeEnum.Electro), 
+        new (ManagementTypeEnum.Water)
     };
 
-    private static Treasure[] Treasures = new[]
+    private static Treasure[] Treasures = 
     {
-        new Treasure(TreasureTypeEnum.Treasure),
-        new Treasure(TreasureTypeEnum.Chance),
-        new Treasure(TreasureTypeEnum.Treasure),
-        new Treasure(TreasureTypeEnum.Chance),
-        new Treasure(TreasureTypeEnum.Treasure),
-        new Treasure(TreasureTypeEnum.Chance),
+        new (TreasureTypeEnum.Treasure),
+        new (TreasureTypeEnum.Chance),
+        new (TreasureTypeEnum.Treasure),
+        new (TreasureTypeEnum.Chance),
+        new (TreasureTypeEnum.Treasure),
+        new (TreasureTypeEnum.Chance),
     };
     
-    private ISector[] _sectors = new ISector[]
+    private ISector[] _sectors = 
     {
         Specials[0],
         Districts[0].Streets[0],
