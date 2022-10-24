@@ -45,13 +45,11 @@ public class MapClassic
             .Append("Арбат", new (400, 0, 0, 0, 0), new (0, 0, 0, 0, 0, 0, 0))
     };
 
-    private static Railway[] Railways =
-    {
-        new ("Рижская"),
-        new ("Курская"),
-        new ("Казанская"), 
-        new ("Ленинградская")
-    };
+    private static RailwayGroup Railways = new(
+        "Рижская", 
+        "Курская", 
+        "Казанская", 
+        "Ленинградская");
 
     private static Tax[] Taxes = 
     {
@@ -67,11 +65,9 @@ public class MapClassic
         new (SpecialEnum.Police)
     };
 
-    private static ManagementCompany[] ManagementCompanies = 
-    {
-        new (ManagementTypeEnum.Electro), 
-        new (ManagementTypeEnum.Water)
-    };
+    private static ManagementCompanyGroup ManagementCompanies = new(
+        ManagementTypeEnum.Electro, 
+        ManagementTypeEnum.Water);
 
     private static Treasure[] Treasures = 
     {
@@ -90,17 +86,17 @@ public class MapClassic
         Treasures[0],
         Districts[0].Streets[1],
         Taxes[0],
-        Railways[0],
+        Railways.Railways[0],
         Districts[1].Streets[0],
         Treasures[1],
         Districts[1].Streets[1],
         Districts[1].Streets[2],
         Specials[1],
         Districts[2].Streets[0],
-        ManagementCompanies[0],
+        ManagementCompanies.ManagementCompanies[0],
         Districts[2].Streets[1],
         Districts[2].Streets[2],
-        Railways[1],
+        Railways.Railways[1],
         Districts[3].Streets[0],
         Treasures[2],
         Districts[3].Streets[1],
@@ -110,17 +106,17 @@ public class MapClassic
         Treasures[3], 
         Districts[4].Streets[1],
         Districts[4].Streets[2],
-        Railways[2],
+        Railways.Railways[2],
         Districts[5].Streets[0],
         Districts[5].Streets[1],
-        ManagementCompanies[1], 
+        ManagementCompanies.ManagementCompanies[1], 
         Districts[5].Streets[2],
         Specials[3],
         Districts[6].Streets[0],
         Districts[6].Streets[1], 
         Treasures[4], 
         Districts[6].Streets[2],
-        Railways[3],
+        Railways.Railways[3],
         Treasures[5],
         Districts[7].Streets[0],  
         Taxes[1],  

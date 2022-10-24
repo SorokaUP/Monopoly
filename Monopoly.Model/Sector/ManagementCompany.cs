@@ -7,11 +7,14 @@ public class ManagementCompany : ISector, IPayment
     public ManagementTypeEnum ManagementType 
         => _type;
 
-    public ManagementCompany(ManagementTypeEnum type)
+    private ManagementCompanyGroup _group;
+
+    public ManagementCompany(ManagementTypeEnum type, ManagementCompanyGroup group)
     {
         this._type = type;
         this._owner = null;
         this._enabled = true;
+        this._group = group;
     }
 
     private User _owner;
@@ -24,22 +27,18 @@ public class ManagementCompany : ISector, IPayment
     public bool Enabled()
         => _enabled;
 
-    private const ushort _COST_PAYMENT = 150;
+    private readonly PayInfo _payInfo = new (150, 75, 83);
 
     public ushort CostPayment()
-        => _COST_PAYMENT;
-
-    private const ushort _COST_DOWN = 75;
+        => _payInfo.CostPayment;
 
     public ushort CostDown()
-        => _COST_DOWN;
-
-    private const ushort _COST_UP = 83;
+        => _payInfo.CostDown;
 
     public ushort CostUp()
-        => _COST_UP;
+        => _payInfo.CostUp;
 
-    private readonly RentManagementCompany _RENT = new (4, 10);
+    private readonly RentManagementCompany _rent = new (4, 10);
     public ushort Rent()
     {
         throw new NotImplementedException();

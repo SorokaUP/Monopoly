@@ -13,7 +13,7 @@ public class Railway : ISector, IPayment
     /// <summary>
     /// Владелец
     /// </summary>
-    private User _owner;
+    private User? _owner;
     
     /// <summary>
     /// Собственность НЕ заложена
@@ -21,49 +21,57 @@ public class Railway : ISector, IPayment
     private bool _enabled;
     
     /// <summary>
-    /// Цена покупки
+    /// Стоимости имущества
     /// </summary>
-    private const int _COST_PAYMENT = 200;
-    
-    /// <summary>
-    /// Цена закладки
-    /// </summary>
-    private const int _COST_DOWN = 100;
-    
-    /// <summary>
-    /// Цена выкупа
-    /// </summary>
-    private const int _COST_UP = 110;
+    private readonly PayInfo _payInfo = new(200, 100, 110);
 
     /// <summary>
     /// Рента по кол-ву выкупленных жд станций
     /// </summary>
-    private readonly RentRailway _RENT = new RentRailway(25, 50, 100, 200);
+    private readonly RentRailway _rent = new (25, 50, 100, 200);
 
-    public Railway(string name)
+    public Railway(string name, RailwayGroup group)
     {
         this._name = name;
         this._enabled = true;
         this._owner = null;
+        this._group = group;
     }
 
-    public User Owner()
+    private readonly RailwayGroup _group;
+
+    public User? Owner()
         => _owner;
 
     public bool Enabled()
         => _enabled;
 
+    /// <summary>
+    /// Цена покупки
+    /// </summary>
     public ushort CostPayment()
-        => _COST_PAYMENT;
+        => _payInfo.CostPayment;
 
+    /// <summary>
+    /// Цена закладки
+    /// </summary>
     public ushort CostDown()
-        => _COST_DOWN;
+        => _payInfo.CostDown;
 
+    /// <summary>
+    /// Цена выкупа
+    /// </summary>
     public ushort CostUp()
-        => _COST_UP;
+        => _payInfo.CostUp;
 
     public ushort Rent()
     {
+        var user = _group.AllPaymentUser();
+        if (user != null)
+        {
+            return _rent.WithAll;
+        }
+
         throw new NotImplementedException();
     }
 }
