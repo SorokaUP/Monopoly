@@ -4,7 +4,7 @@ namespace Monopoly.Model;
 
 public class MapClassic
 {
-    private static District[] Districts =
+    private static readonly District[] Districts =
     {
         new District(Color.SaddleBrown)
             .Append("Житная", new (60, 30, 33), new (50, 50), new (2, 4, 10, 30, 90, 160, 250))
@@ -45,7 +45,7 @@ public class MapClassic
             .Append("Арбат", new (400, 200, 220), new (200, 200), new (50, 100, 200, 600, 1400, 1700, 2000))
     };
 
-    private static RailwayGroup Railways = new(
+    private static readonly RailwayGroup Railways = new(
         "Рижская", 
         "Курская", 
         "Казанская", 
@@ -57,7 +57,7 @@ public class MapClassic
         new (100)
     };
 
-    private static Special[] Specials = 
+    private static readonly Special[] Specials = 
     {
         new (SpecialEnum.Go),
         new (SpecialEnum.JailOrFree),
@@ -65,11 +65,11 @@ public class MapClassic
         new (SpecialEnum.Police)
     };
 
-    private static ManagementCompanyGroup ManagementCompanies = new(
+    private static readonly ManagementCompanyGroup ManagementCompanies = new(
         ManagementTypeEnum.Electro, 
         ManagementTypeEnum.Water);
 
-    private static Treasure[] Treasures = 
+    private static readonly Treasure[] Treasures = 
     {
         new (TreasureTypeEnum.Treasure),
         new (TreasureTypeEnum.Chance),
