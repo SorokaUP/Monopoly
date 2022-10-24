@@ -29,31 +29,31 @@ public class Street : ISector, IStreet
     /// Цена покупки
     /// </summary>
     public ushort CostPayment() 
-        => _payInfoStreet.CostPayment;
+        => _payInfo.CostPayment;
     
     /// <summary>
     /// Цена закладки
     /// </summary>
     public ushort CostDown() 
-        => _payInfoStreet.CostDown;
+        => _payInfo.CostDown;
 
     /// <summary>
     /// Цена выкупа
     /// </summary>
     public ushort CostUp() 
-        => _payInfoStreet.CostUp;
+        => _payInfo.CostUp;
 
     /// <summary>
     /// Цена дома
     /// </summary>
     public ushort CostHouse() 
-        => _payInfoStreet.CostHouse;
+        => _payInfoHouse.CostHouse;
 
     /// <summary>
     /// Цена отеля
     /// </summary>
     public ushort CostHotel() 
-        => _payInfoStreet.CostHotel;
+        => _payInfoHouse.CostHotel;
     
     /// <summary>
     /// Текущий владелец
@@ -81,16 +81,18 @@ public class Street : ISector, IStreet
         throw new NotImplementedException();
     }
 
-    private readonly PayInfoStreet _payInfoStreet;
+    private readonly PayInfo _payInfo;
+    private readonly PayInfoHouse _payInfoHouse;
 
-    public Street(string name, PayInfoStreet payInfoStreet, RentStreet rent, District district)
+    public Street(string name, PayInfo payInfo, PayInfoHouse payInfoHouse, RentStreet rent, District district)
     {
         this._name = name;
         this._district = district;
         this._enabled = true;
         this._homeCount = 0;
         this._owner = null;
-        this._payInfoStreet = payInfoStreet;
+        this._payInfo = payInfo;
+        this._payInfoHouse = payInfoHouse;
         this._rent = rent;
     }
 }

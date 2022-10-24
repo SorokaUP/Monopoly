@@ -25,9 +25,9 @@ public class District
         this._color = color;
     }
 
-    public District Append(string name, PayInfoStreet payInfoStreet, RentStreet rent)
+    public District Append(string name, PayInfo payInfo, PayInfoHouse payInfoHouse, RentStreet rent)
     {
-        _streets.Add(new (name, payInfoStreet, rent, this));
+        _streets.Add(new (name, payInfo, payInfoHouse, rent, this));
         return this;
     }
 
