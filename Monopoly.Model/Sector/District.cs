@@ -34,11 +34,16 @@ public class District
     /// <summary>
     /// Выкуплено полностью
     /// </summary>
-    public User? Redeemed()
+    public User? AllPaymentUser()
     {
         User? user = null;
         foreach (var street in _streets)
         {
+            if (street.Owner() == null)
+            {
+                return null;
+            }
+            
             if (user == null)
             {
                 user = street.Owner();
